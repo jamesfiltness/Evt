@@ -6,12 +6,12 @@
 
 /**
  *
- * @Evt - A fully featured PubSub for JavaScript
+ * @Evt
  * Should be instantiated - i.e. let evts = new Evt()
  * Allows for context and arguments to be passed to the subscribing functions
 */
 export default class Evt {
-     /**
+    /**
      *
      * @Evt - Creates a new instance of Ok
      * @constructor
