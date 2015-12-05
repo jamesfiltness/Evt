@@ -11,6 +11,7 @@ Evt implements the following features:
 
 ## Usage 
 
+
 ```js
 import Evt from './Evt.js'
 
@@ -49,7 +50,7 @@ let myObj = new myClass();
 
 var evt = new Evt();
 
-/* Pass myObj along as the third argument. The callback will get called, applied with myObj as a context
+/* Pass myObj along as the third argument. The callback will get called, applied with myObj as a context */
 evt.subscribe('MYEVT', function() {
     this.aMethod(); 
 }, myObj);
@@ -66,14 +67,14 @@ import Evt from './Evt.js'
 
 var evt = new Evt();
 
-/* Subscribe returns a unique id that points to the subscription
+/* Subscribe returns a unique id that points to the subscription */
 var pointer = evt.subscribe('MYEVT', function() {});
 
 /* Pass unsubscribe the pointer to unsubscribe the callback */
 evt.unsubscribe(pointer);
 ```
 
-#### Unsubscribing Evts
+#### Unsubscribing Events
 
 ```js
 import Evt from './Evt.js'
@@ -97,6 +98,13 @@ evt.subscribe('MYEVT', function() {});
 
 /* Calling purge completely empties the evt instance of all callbacks and events */
 evt.purge();
+```
+
+#### Logging
+```js
+
+/* Logs out evts object where you can see all registered events and callbacks */
+console.log(evt.evts);
 ```
 
 ##Test
