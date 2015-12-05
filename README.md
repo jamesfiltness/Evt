@@ -5,7 +5,7 @@ Evt is a small PubSub implementation in ES6.
 Evt implements the following features: 
 
 * Pass a 'this' context and arguments to subscribing functions
-* Unsubscribe callbacks and unsubscribe events plus all callbacks
+* Unsubscribe callbacks and evts
 * Purge all registered events and callbacks
 * ES6 compatible
 
@@ -26,10 +26,11 @@ evt.subscribe('MYEVT', function() {
     console.log('hello again'); 
 });
 
-/* publish 'MYEVT' */
+/* Publish 'MYEVT' */
 evt.publish('MYEVT');
 
 /* 
+logs: 
 hello 
 hello again
 */
@@ -41,18 +42,19 @@ hello again
 ```js
 import Evt from './Evt.js'
 
+/* Create some object to be passed along as context */
 var myClass = function () {}
 myClass.prototype.aMethod = function() { console.log('hey') };
 let myObj = new myClass();
 
 var evt = new Evt();
 
-/* Pass myObj along as the third argument.The callback will get called, applied with myObj as a context
+/* Pass myObj along as the third argument. The callback will get called, applied with myObj as a context
 evt.subscribe('MYEVT', function() {
-    console.log(this.aMethod()); 
+    this.aMethod(); 
 }, myObj);
 
-/* publish 'MYEVT' */
+/* Publish 'MYEVT' */
 evt.publish('MYEVT');
 /* logs: 'hey' */
 ```
@@ -64,10 +66,10 @@ import Evt from './Evt.js'
 
 var evt = new Evt();
 
-/* subscribe returns a unique id that points to the subscription
+/* Subscribe returns a unique id that points to the subscription
 var pointer = evt.subscribe('MYEVT', function() {});
 
-/* Pass unsubscribe the pointer */
+/* Pass unsubscribe the pointer to unsubscribe the callback */
 evt.unsubscribe(pointer);
 ```
 
@@ -93,7 +95,7 @@ var evt = new Evt();
 
 evt.subscribe('MYEVT', function() {});
 
-/* calling purge completely empties the evt instance of all callbacks and events */
+/* Calling purge completely empties the evt instance of all callbacks and events */
 evt.purge();
 ```
 
