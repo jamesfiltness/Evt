@@ -11,7 +11,7 @@ Evt implements the following features:
 
 ## Usage 
 
-```
+```js
 import Evt from './Evt.js'
 
 var evt = new Evt();
@@ -38,7 +38,7 @@ hello again
 
 #### Subscribing with context
 
-```
+```js
 import Evt from './Evt.js'
 
 var myClass = function () {}
@@ -59,7 +59,7 @@ evt.publish('MYEVT');
 
 #### Unsubscribing callbacks
 
-```
+```js
 import Evt from './Evt.js'
 
 var evt = new Evt();
@@ -73,7 +73,7 @@ evt.unsubscribe(pointer);
 
 #### Unsubscribing Evts
 
-```
+```js
 import Evt from './Evt.js'
 
 var evt = new Evt();
@@ -86,7 +86,7 @@ evt.unsubscribe('MYEVT');
 
 #### Purge
 
-```
+```js
 import Evt from './Evt.js'
 
 var evt = new Evt();
