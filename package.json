@@ -2,23 +2,31 @@
   "name": "Evt",
   "version": "1.0.0",
   "description": "PubSub ES6 module",
+  "author": "James Filtness",
   "main": "Evt.js",
   "scripts": {
-    "test": "mocha --require babel-core/register"
+    "test": "time ./node_modules/.bin/_mocha --require babel-core/register"
   },
   "keywords": [
     "PubSub",
     "ES6",
     "JavaScript"
   ],
-  "author": "James Filtness",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamesfiltness/Evt"
+  },
+  "bugs": {
+    "url": "https://github.com/jamesfiltness/Evt/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
+    "babel-polyfill": "^6.3.14",
     "babel-preset-es2015": "^6.1.18",
+    "babel-register": "^6.3.13",
     "chai": "^3.4.1",
-    "istanbul": "^0.4.1",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2"
   }

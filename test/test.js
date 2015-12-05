@@ -1,18 +1,22 @@
+/* Some features of babel need polyfilling - Array.from in this instance */
+require("babel-polyfill");
 var chai = require('chai');
 var sinon = require("sinon");
+var sinonChai = require("sinon-chai");
 var expect = chai.expect;
 var assert = chai.assert;
+
 import Evt from '../Evt.js';
 
 describe('The Evt library', function() {
-
     let evt;
+    
     beforeEach(function() {
         evt = new Evt();
     });
     
     describe('Constructor', function () {
-    	it('should create an empty evts object', function () {
+        it('should create an empty evts object', function () {
             expect(evt.evts).to.be.an('object');
             expect(evt.evts).to.be.empty;
         });
@@ -102,11 +106,10 @@ describe('The Evt library', function() {
               var subscriber1 = sinon.spy()
               evt.subscribe('MYEVT', subscriber);
               evt.subscribe('MYEVT1', subscriber1);
+
               evt.publish('MYEVT');
               expect(subscriber1.called).to.be.false;
           });
-
-        
 
          it('should pass on all provided arguments to subscribing functions', function () {
              var subscriber = sinon.spy()
@@ -128,6 +131,7 @@ describe('The Evt library', function() {
      });
 
      describe('The Purge method', function () {
+
          it('should empty the evts object', function () {
              evt.subscribe('MYEVT', function() {})
              evt.purge();
@@ -139,7 +143,7 @@ describe('The Evt library', function() {
              var subscriber = sinon.spy()
              evt.subscribe('MYEVT', subscriber)
              evt.purge();
-             evt.publish('MYEVT');
+             var i = evt.publish('MYEVT');
              expect(subscriber.called).to.be.false;
          }); 
      });

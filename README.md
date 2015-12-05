@@ -4,7 +4,6 @@ Evt is a small PubSub implementation in ES6.
 
 Evt implements the following features: 
 
-* Dependency free
 * Compatible with ES6 modules
 * Pass a 'this' context and additional arguments to subscribing functions
 * Unsubscribe callbacks and unsubscribe events + all callbacks
