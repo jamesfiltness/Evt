@@ -15,7 +15,7 @@ Evt implements the following features:
 ```js
 import Evt from './Evt.js'
 
-var evt = new Evt();
+let evt = new Evt();
 
 /* Subscribe to 'MYEVT' - providing a callback to be called when the MYEVT event is published  */
 evt.subscribe('MYEVT', function() {
@@ -44,11 +44,11 @@ hello again
 import Evt from './Evt.js'
 
 /* Create some object to be passed along as context */
-var myClass = function () {}
+ myClass = function () {}
 myClass.prototype.aMethod = function() { console.log('hey') };
 let myObj = new myClass();
 
-var evt = new Evt();
+let evt = new Evt();
 
 /* Pass myObj along as the third argument. 
    The callback will get called, applied with myObj as a context */
@@ -66,10 +66,10 @@ evt.publish('MYEVT');
 ```js
 import Evt from './Evt.js'
 
-var evt = new Evt();
+let evt = new Evt();
 
 /* Subscribe returns a unique id that points to the subscription */
-var pointer = evt.subscribe('MYEVT', function() {});
+let pointer = evt.subscribe('MYEVT', function() {});
 
 /* Pass unsubscribe the pointer to unsubscribe the callback */
 evt.unsubscribe(pointer);
@@ -80,7 +80,7 @@ evt.unsubscribe(pointer);
 ```js
 import Evt from './Evt.js'
 
-var evt = new Evt();
+let evt = new Evt();
 
 evt.subscribe('MYEVT', function() {});
 
@@ -93,7 +93,7 @@ evt.unsubscribe('MYEVT');
 ```js
 import Evt from './Evt.js'
 
-var evt = new Evt();
+let evt = new Evt();
 
 evt.subscribe('MYEVT', function() {});
 
