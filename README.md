@@ -50,7 +50,8 @@ let myObj = new myClass();
 
 var evt = new Evt();
 
-/* Pass myObj along as the third argument. The callback will get called, applied with myObj as a context */
+/* Pass myObj along as the third argument. 
+   The callback will get called, applied with myObj as a context */
 evt.subscribe('MYEVT', function() {
     this.aMethod(); 
 }, myObj);
@@ -103,7 +104,7 @@ evt.purge();
 #### Logging
 ```js
 
-/* Logs out evts object where you can see all registered events and callbacks */
+/* Log out the evts object to see all registered events and callbacks */
 console.log(evt.evts);
 ```
 
