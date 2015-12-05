@@ -44,7 +44,7 @@ hello again
 import Evt from './Evt.js'
 
 /* Create some object to be passed along as context */
- myClass = function () {}
+let myClass = function () {}
 myClass.prototype.aMethod = function() { console.log('hey') };
 let myObj = new myClass();
 
