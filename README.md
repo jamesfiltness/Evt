@@ -66,6 +66,7 @@ evt.publish('MYEVT');
 ```
 
 #### Passing arguments to subscribing functions
+```js
 import Evt from './Evt.js'
 
 let evt = new Evt();
@@ -78,6 +79,7 @@ evt.subscribe('MYEVT', function(myArg) {
 /* Publish 'MYEVT' - passing along an additional argument */
 evt.publish('MYEVT', 'hey'); 
 /* Logs 'hey' */
+```
 
 
 #### Unsubscribing callbacks
