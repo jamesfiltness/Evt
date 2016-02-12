@@ -4,7 +4,8 @@ Evt is a small PubSub implementation in ES6.
 
 Evt implements the following features: 
 
-* Pass a 'this' context and arguments to subscribing functions
+* Pass a 'this' context when making subscriptions
+* Pass arguments to subscribing functions when publishing
 * Unsubscribe callbacks and evts
 * Purge all registered events and callbacks
 * ES6 compatible
@@ -45,7 +46,10 @@ import Evt from './Evt.js'
 
 /* Create some object to be passed along as context */
 let myClass = function () {}
-myClass.prototype.aMethod = function() { console.log('hey') };
+myClass.prototype.aMethod = function() { 
+    console.log('hey') 
+};
+
 let myObj = new myClass();
 
 let evt = new Evt();
@@ -60,6 +64,21 @@ evt.subscribe('MYEVT', function() {
 evt.publish('MYEVT');
 /* logs: 'hey' */
 ```
+
+#### Passing arguments to subscribing functions
+import Evt from './Evt.js'
+
+let evt = new Evt();
+
+/* Subscribe to 'MYEVT' - notice the function param */
+evt.subscribe('MYEVT', function(myArg) {
+    console.log(myArg); 
+});
+
+/* Publish 'MYEVT' - passing along an additional argument */
+evt.publish('MYEVT', 'hey'); 
+/* Logs 'hey' */
+
 
 #### Unsubscribing callbacks
 
