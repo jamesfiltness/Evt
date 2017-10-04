@@ -16,7 +16,7 @@ Evt implements the following features:
 ```js
 import Evt from './Evt.js'
 
-let evt = new Evt();
+const evt = new Evt();
 
 /* Subscribe to 'MYEVT' - providing a callback to be called when the MYEVT event is published  */
 evt.subscribe('MYEVT', function() {
@@ -45,14 +45,15 @@ hello again
 import Evt from './Evt.js'
 
 /* Create some object to be passed along as context */
-let myClass = function () {}
-myClass.prototype.aMethod = function() { 
-    console.log('hey') 
-};
+class myClass() {
+  aMethod() {
+    console.log('hey');
+  }
+}
 
-let myObj = new myClass();
+const myObj = new myClass();
 
-let evt = new Evt();
+const evt = new Evt();
 
 /* Pass myObj along as the third argument. 
    The callback will get called, applied with myObj as a context */
@@ -69,7 +70,7 @@ evt.publish('MYEVT');
 ```js
 import Evt from './Evt.js'
 
-let evt = new Evt();
+const evt = new Evt();
 
 /* Subscribe to 'MYEVT' - notice the function param */
 evt.subscribe('MYEVT', function(myArg) {
@@ -87,10 +88,10 @@ evt.publish('MYEVT', 'hey');
 ```js
 import Evt from './Evt.js'
 
-let evt = new Evt();
+const evt = new Evt();
 
 /* Subscribe returns a unique id that points to the subscription */
-let pointer = evt.subscribe('MYEVT', function() {});
+const pointer = evt.subscribe('MYEVT', function() {});
 
 /* Pass unsubscribe the pointer to unsubscribe the callback */
 evt.unsubscribe(pointer);
@@ -101,7 +102,7 @@ evt.unsubscribe(pointer);
 ```js
 import Evt from './Evt.js'
 
-let evt = new Evt();
+const evt = new Evt();
 
 evt.subscribe('MYEVT', function() {});
 
@@ -114,7 +115,7 @@ evt.unsubscribe('MYEVT');
 ```js
 import Evt from './Evt.js'
 
-let evt = new Evt();
+const evt = new Evt();
 
 evt.subscribe('MYEVT', function() {});
 
