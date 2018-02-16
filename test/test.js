@@ -1,4 +1,3 @@
-/* Some features of babel need polyfilling - Array.from in this instance */
 require("babel-polyfill");
 var chai = require('chai');
 var sinon = require("sinon");
